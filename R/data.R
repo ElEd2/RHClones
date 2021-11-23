@@ -1,9 +1,9 @@
-#' MCMC tibble with regression parameters for mPAS and MAOA
+#' MCMC tibble with regression parameters for HDAC6, KDM6A, MAOA, mPAS, NONO, P53, PTEN, STAG2
 #'
 #' @format A data frame with 6 variables: \code{x_intercept}, \code{mean_slope},
 #'   \code{sd_slope}, \code{partials_mean}, \code{partials_sd},
 #'   \code{clonal_mark}
-"regr_maoa_mpas"
+"all_slope_part"
 
 #' MCMC tibble with fission population estimates for NONO, P53, mPAS, MAOA, Stag2
 #'
