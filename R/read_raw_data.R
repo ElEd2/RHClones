@@ -43,6 +43,10 @@ read_raw_data <- function(file_name){
   proc_file = proc_file %>%  dplyr::mutate(Patch_size = dplyr::if_else(Patch_size > 10, 11, Patch_size)) %>%
     dplyr::mutate(Patch_size = factor(paste( paste0("fullx", Patch_size)), levels = patch_sizes_str))
 
+  # If multiple larger than 10 patches need to merge
+  proc_file = proc_file %>% dplyr::group_by(dplyr::across(-Patch_amount)) %>%
+    dplyr::summarise(Patch_amount = sum(Patch_amount)) %>% dplyr::ungroup()
+
   # dodgy workaround
   dummy_tbl = dplyr::tibble(Block.ID = "Ed_added", Patch_size = factor(patch_sizes_str, levels = patch_sizes_str), Patch_amount = 0)
 
